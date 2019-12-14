@@ -31,8 +31,8 @@ class NetworkLayerTests: XCTestCase {
     
     func testURLRequests() {
         XCTAssertEqual(requestBuilder.getItemsPageRequest(pageNum: 1), URLRequest(url: URL(string: "http://testwork.nsd.naumen.ru/rest/computers?p=1")!))
-        XCTAssertEqual(requestBuilder.getItemDetailRequest(itemId: 71), URLRequest(url: URL(string: "http://testwork.nsd.naumen.ru/rest/computers/71")!))
-        XCTAssertEqual(requestBuilder.getSimilarItemRequest(itemId: 71), URLRequest(url: URL(string: "http://testwork.nsd.naumen.ru/rest/computers/71/similar")!))
+        XCTAssertEqual(requestBuilder.getItemDetailsRequest(itemId: 71), URLRequest(url: URL(string: "http://testwork.nsd.naumen.ru/rest/computers/71")!))
+        XCTAssertEqual(requestBuilder.getSimilarItemsRequest(itemId: 71), URLRequest(url: URL(string: "http://testwork.nsd.naumen.ru/rest/computers/71/similar")!))
     }
     
     func testGetItemsPage() {
@@ -43,6 +43,35 @@ class NetworkLayerTests: XCTestCase {
                 XCTAssertNotNil(itemsPage?.items)
                 XCTAssertNotNil(itemsPage?.offset)
                 XCTAssertNotNil(itemsPage?.total)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        })
+    }
+    
+    func testGetItemDerails() {
+        networkService.getItemDetails(itemId: 71, completion: { result in
+            switch result {
+            case .success(let itemDetails):
+                XCTAssertEqual(itemDetails?.id, 71)
+                XCTAssertEqual(itemDetails?.name, "Amiga 1000")
+                XCTAssertEqual(itemDetails?.imageURL, "https://www.overclockers.ru/images/news/2016/07/28/LeanovoAir13Pro_01.jpg")
+                XCTAssertEqual(itemDetails?.company?.id, 6)
+                XCTAssertNotNil(itemDetails?.company?.name)
+                XCTAssertNotNil(itemDetails?.itemDatailsDescription)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        })
+    }
+    
+    func testGetSimilarItems() {
+        networkService.getSimilarItems(itemId: 71, completion: { result in
+            switch result {
+            case .success(let similarItems):
+                XCTAssertEqual(similarItems?.count, 5)
+                XCTAssertEqual(similarItems?[0].id, 72)
+                XCTAssertEqual(similarItems?[0].name, "Amiga 500")
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
