@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B916951323A519A400440F31 /* MainModuleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B916951223A519A400440F31 /* MainModuleTest.swift */; };
+		B916951B23A5382400440F31 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B916951A23A5382400440F31 /* ModuleBuilder.swift */; };
+		B916951D23A53B2800440F31 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B916951C23A53B2800440F31 /* MainTableViewCell.xib */; };
 		B9483A2823A4CAE800184A08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9483A2723A4CAE800184A08 /* AppDelegate.swift */; };
 		B9483A2A23A4CAE800184A08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9483A2923A4CAE800184A08 /* SceneDelegate.swift */; };
 		B9483A2C23A4CAE800184A08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9483A2B23A4CAE800184A08 /* ViewController.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B916951223A519A400440F31 /* MainModuleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleTest.swift; sourceTree = "<group>"; };
+		B916951A23A5382400440F31 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		B916951C23A53B2800440F31 /* MainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		B9483A2423A4CAE800184A08 /* TestClientServerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestClientServerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9483A2723A4CAE800184A08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9483A2923A4CAE800184A08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +111,7 @@
 				B9483A3823A4CAEE00184A08 /* Info.plist */,
 				B9483A3023A4CAE800184A08 /* TestClientServerApp.xcdatamodeld */,
 				B9483A6023A4D2AC00184A08 /* NetworkLayer */,
+				B916951A23A5382400440F31 /* ModuleBuilder.swift */,
 			);
 			path = TestClientServerApp;
 			sourceTree = "<group>";
@@ -115,6 +122,7 @@
 				B9483A4123A4CAEE00184A08 /* TestClientServerAppTests.swift */,
 				B9483A4323A4CAEE00184A08 /* Info.plist */,
 				B9483A6323A4DF8100184A08 /* NetworkLayerTests.swift */,
+				B916951223A519A400440F31 /* MainModuleTest.swift */,
 			);
 			path = TestClientServerAppTests;
 			sourceTree = "<group>";
@@ -142,6 +150,7 @@
 			children = (
 				B9483A5523A4D11100184A08 /* MainViewController.swift */,
 				B9483A5623A4D11100184A08 /* MainViewController.xib */,
+				B916951C23A53B2800440F31 /* MainTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,6 +257,7 @@
 				B9483A3423A4CAEE00184A08 /* Assets.xcassets in Resources */,
 				B9483A2F23A4CAE800184A08 /* Main.storyboard in Resources */,
 				B9483A5823A4D11100184A08 /* MainViewController.xib in Resources */,
+				B916951D23A53B2800440F31 /* MainTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +279,7 @@
 				B9483A2823A4CAE800184A08 /* AppDelegate.swift in Sources */,
 				B9483A5423A4CF1C00184A08 /* ItemsPage.swift in Sources */,
 				B9483A5E23A4D29000184A08 /* RequestBuilder.swift in Sources */,
+				B916951B23A5382400440F31 /* ModuleBuilder.swift in Sources */,
 				B9483A5723A4D11100184A08 /* MainViewController.swift in Sources */,
 				B9483A3223A4CAE800184A08 /* TestClientServerApp.xcdatamodeld in Sources */,
 				B9483A5A23A4D16800184A08 /* MainPresenter.swift in Sources */,
@@ -281,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B916951323A519A400440F31 /* MainModuleTest.swift in Sources */,
 				B9483A6423A4DF8100184A08 /* NetworkLayerTests.swift in Sources */,
 				B9483A4223A4CAEE00184A08 /* TestClientServerAppTests.swift in Sources */,
 			);
