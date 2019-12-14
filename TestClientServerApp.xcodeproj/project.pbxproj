@@ -80,6 +80,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B916951E23A564F100440F31 /* DatailModule */ = {
+			isa = PBXGroup;
+			children = (
+				B916952123A5651D00440F31 /* Model */,
+				B916952023A5651400440F31 /* View */,
+				B916951F23A5650C00440F31 /* Presenter */,
+			);
+			path = DatailModule;
+			sourceTree = "<group>";
+		};
+		B916951F23A5650C00440F31 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B916952023A5651400440F31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B916952123A5651D00440F31 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B9483A1B23A4CAE800184A08 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +132,7 @@
 		B9483A2623A4CAE800184A08 /* TestClientServerApp */ = {
 			isa = PBXGroup;
 			children = (
+				B916951E23A564F100440F31 /* DatailModule */,
 				B9483A4C23A4CB4B00184A08 /* MainModule */,
 				B9483A2723A4CAE800184A08 /* AppDelegate.swift */,
 				B9483A2923A4CAE800184A08 /* SceneDelegate.swift */,

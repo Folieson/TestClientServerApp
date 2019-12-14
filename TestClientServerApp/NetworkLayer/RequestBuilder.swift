@@ -10,6 +10,8 @@ import Foundation
 
 protocol RequestBuilderProtocol {
     func getItemsPageRequest(pageNum: Int) -> URLRequest?
+    func getItemDetailRequest(itemId: Int) -> URLRequest?
+    func getSimilarItemRequest(itemId: Int) -> URLRequest?
 }
 
 class RequestBuilder: RequestBuilderProtocol {
@@ -17,6 +19,18 @@ class RequestBuilder: RequestBuilderProtocol {
     
     func getItemsPageRequest(pageNum: Int) -> URLRequest? {
         let urlStr = "\(baseUrl)?p=\(pageNum)"
+        guard let url = URL(string: urlStr) else { return nil }
+        return URLRequest(url: url)
+    }
+    
+    func getItemDetailRequest(itemId: Int) -> URLRequest? {
+           let urlStr = "\(baseUrl)/\(itemId)"
+           guard let url = URL(string: urlStr) else { return nil }
+           return URLRequest(url: url)
+    }
+    
+    func getSimilarItemRequest(itemId: Int) -> URLRequest? {
+        let urlStr = "\(baseUrl)/\(itemId)/similar"
         guard let url = URL(string: urlStr) else { return nil }
         return URLRequest(url: url)
     }

@@ -29,8 +29,10 @@ class NetworkLayerTests: XCTestCase {
         XCTAssertNotNil(networkService)
     }
     
-    func testURLRequest() {
+    func testURLRequests() {
         XCTAssertEqual(requestBuilder.getItemsPageRequest(pageNum: 1), URLRequest(url: URL(string: "http://testwork.nsd.naumen.ru/rest/computers?p=1")!))
+        XCTAssertEqual(requestBuilder.getItemDetailRequest(itemId: 71), URLRequest(url: URL(string: "http://testwork.nsd.naumen.ru/rest/computers/71")!))
+        XCTAssertEqual(requestBuilder.getSimilarItemRequest(itemId: 71), URLRequest(url: URL(string: "http://testwork.nsd.naumen.ru/rest/computers/71/similar")!))
     }
     
     func testGetItemsPage() {
