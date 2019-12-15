@@ -26,6 +26,11 @@
 		B9483A5C23A4D27300184A08 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9483A5B23A4D27300184A08 /* NetworkService.swift */; };
 		B9483A5E23A4D29000184A08 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9483A5D23A4D29000184A08 /* RequestBuilder.swift */; };
 		B9483A6423A4DF8100184A08 /* NetworkLayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9483A6323A4DF8100184A08 /* NetworkLayerTests.swift */; };
+		B960FED723A622EE00FEA970 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960FED523A622EE00FEA970 /* DetailViewController.swift */; };
+		B960FED823A622EE00FEA970 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B960FED623A622EE00FEA970 /* DetailViewController.xib */; };
+		B960FEDA23A6230200FEA970 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960FED923A6230200FEA970 /* DetailPresenter.swift */; };
+		B960FEDC23A632EE00FEA970 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960FEDB23A632ED00FEA970 /* InfoView.swift */; };
+		B960FEDE23A6330300FEA970 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B960FEDD23A6330300FEA970 /* InfoView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +67,11 @@
 		B9483A5B23A4D27300184A08 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B9483A5D23A4D29000184A08 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		B9483A6323A4DF8100184A08 /* NetworkLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayerTests.swift; sourceTree = "<group>"; };
+		B960FED523A622EE00FEA970 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B960FED623A622EE00FEA970 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		B960FED923A6230200FEA970 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		B960FEDB23A632ED00FEA970 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		B960FEDD23A6330300FEA970 /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +105,7 @@
 		B916951F23A5650C00440F31 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				B960FED923A6230200FEA970 /* DetailPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -102,6 +113,10 @@
 		B916952023A5651400440F31 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B960FED523A622EE00FEA970 /* DetailViewController.swift */,
+				B960FED623A622EE00FEA970 /* DetailViewController.xib */,
+				B960FEDB23A632ED00FEA970 /* InfoView.swift */,
+				B960FEDD23A6330300FEA970 /* InfoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,8 +303,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B960FEDE23A6330300FEA970 /* InfoView.xib in Resources */,
 				B9483A3723A4CAEE00184A08 /* LaunchScreen.storyboard in Resources */,
 				B9483A3423A4CAEE00184A08 /* Assets.xcassets in Resources */,
+				B960FED823A622EE00FEA970 /* DetailViewController.xib in Resources */,
 				B9483A5823A4D11100184A08 /* MainViewController.xib in Resources */,
 				B916951D23A53B2800440F31 /* MainTableViewCell.xib in Resources */,
 			);
@@ -309,10 +326,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B960FED723A622EE00FEA970 /* DetailViewController.swift in Sources */,
 				B9483A2C23A4CAE800184A08 /* ViewController.swift in Sources */,
 				B9483A2823A4CAE800184A08 /* AppDelegate.swift in Sources */,
 				B9483A5423A4CF1C00184A08 /* ItemsPage.swift in Sources */,
 				B9483A5E23A4D29000184A08 /* RequestBuilder.swift in Sources */,
+				B960FEDA23A6230200FEA970 /* DetailPresenter.swift in Sources */,
 				B916951B23A5382400440F31 /* ModuleBuilder.swift in Sources */,
 				B9483A5723A4D11100184A08 /* MainViewController.swift in Sources */,
 				B9483A3223A4CAE800184A08 /* TestClientServerApp.xcdatamodeld in Sources */,
@@ -320,6 +339,7 @@
 				B916952523A5696800440F31 /* SimilarItem.swift in Sources */,
 				B916952323A5681E00440F31 /* ItemDatails.swift in Sources */,
 				B9483A2A23A4CAE800184A08 /* SceneDelegate.swift in Sources */,
+				B960FEDC23A632EE00FEA970 /* InfoView.swift in Sources */,
 				B9483A5C23A4D27300184A08 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

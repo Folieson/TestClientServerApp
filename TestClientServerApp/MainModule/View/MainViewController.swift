@@ -41,6 +41,12 @@ extension MainViewController: UITableViewDelegate {
             presenter.getItemsPage(pageNumb: currentPage)
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let itemId = presenter.items[indexPath.row].id else { return }
+        let detailViewController = ModuleBuilder.createDetail(itemId: itemId)
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
 }
 
 extension MainViewController: UITableViewDataSource {

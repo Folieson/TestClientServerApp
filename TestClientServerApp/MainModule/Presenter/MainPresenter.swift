@@ -15,22 +15,21 @@ protocol MainViewProtocol: class {
     func hideActivityIndicator()
 }
 
-protocol MainPresenterProtocol {
+protocol MainPresenterProtocol: class {
     init(view: MainViewProtocol, networkService: NetworkServiceProtocol)
     var items: [Item] { get set }
     func getItemsPage(pageNumb: Int)
 }
 
 class MainPresenter: MainPresenterProtocol {
-    weak var view: MainViewProtocol?
-    let networkService: NetworkServiceProtocol!
+    private weak var view: MainViewProtocol?
+    private let networkService: NetworkServiceProtocol!
     var items: [Item] = [Item]()
     private var lastPage = false
     
     required init(view: MainViewProtocol, networkService: NetworkServiceProtocol) {
         self.view = view
         self.networkService = networkService
-        //getItemsPage(pageNumb: 1)
     }
     
     func getItemsPage(pageNumb: Int) {
