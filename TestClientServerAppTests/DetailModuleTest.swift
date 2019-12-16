@@ -10,10 +10,12 @@ import XCTest
 @testable import TestClientServerApp
 
 class MockDetailView: DetailViewProtocol {
+    var activityIndicator = UIActivityIndicatorView()
     var itemDetails: String?
     var similarItems: String?
     var asyncSetItemDetailsExpectation: XCTestExpectation?
     var asyncSetSimilarItemsExpectation: XCTestExpectation?
+    var asyncHideExpectation: XCTestExpectation?
     
     func setItemDetails() {
         self.itemDetails = ""
@@ -32,11 +34,13 @@ class MockDetailView: DetailViewProtocol {
     }
     
     func showActivityIndicator() {
-        
+        self.activityIndicator.startAnimating()
     }
     
     func hideActivityIndicator() {
-        
+        self.activityIndicator.stopAnimating()
+        asyncHideExpectation?.fulfill()
+        asyncHideExpectation = nil
     }
     
     
@@ -63,6 +67,14 @@ class DetailModuleTest: XCTestCase {
         networkService = nil
         router = nil
         presenter = nil
+    }
+    
+    func testModuleNotNil() {
+        XCTAssertNotNil(view)
+        XCTAssertNotNil(requestBuilder)
+        XCTAssertNotNil(networkService)
+        XCTAssertNotNil(router)
+        XCTAssertNotNil(presenter)
     }
 
     func testGetItemDetails() {
@@ -107,6 +119,36 @@ class DetailModuleTest: XCTestCase {
     func testImageLoadData() {
         presenter.getImageData(urlString: "https://gizmod.ru/uploads/posts/2016-03/1457543403_noutbuki-serii-samsung-notebook-9-uje-v-prodaje-2.jpg")
         XCTAssertNotNil(presenter.itemImageData)
+    }
+    
+    func testShowAnimation() {
+        
+        let asyncExpectation = expectation(description: "Async block executed")
+        DispatchQueue.main.async {
+            self.presenter.getSimilarItems()
+            guard let isIndicatorAnimating = self.view?.activityIndicator.isAnimating else {
+                XCTFail()
+                asyncExpectation.fulfill()
+                return
+            }
+            XCTAssertTrue(isIndicatorAnimating)
+            asyncExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    func testHideAnimation() {
+        self.presenter.getSimilarItems()
+        let asyncExpectation = expectation(description: "hideActivityIndicator() completed")
+        self.view.asyncHideExpectation = asyncExpectation
+        waitForExpectations(timeout: 10) { error in
+            
+            guard let isIndicatorAnimating = self.view?.activityIndicator.isAnimating else {
+                XCTFail()
+                return
+            }
+            XCTAssertFalse(isIndicatorAnimating)
+        }
     }
 
 }
