@@ -17,26 +17,30 @@ protocol DetailViewProtocol: class {
 }
 
 protocol DetailPresenterProtocol: class {
-    init(view: DetailViewProtocol, networkService: NetworkServiceProtocol, itemId: Int)
+    init(view: DetailViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, itemId: Int)
     var itemDetails: ItemDatails? { get set }
     var itemImageData: Data? { get set }
     var similarItems: [SimilarItem]? { get set }
     func getItemDetails()
     func getSimilarItems()
+    func tapOnTheSimilarItem(itemId: Int?)
+    func tapOnTheReturnToTheMainScreen()
     func formatDateFromISO8601(date: String?) -> String?
 }
 
 class DetailPresenter: DetailPresenterProtocol {
     private weak var view: DetailViewProtocol?
     private let networkService: NetworkServiceProtocol!
+    private let router: RouterProtocol
     private let itemId: Int
     var itemDetails: ItemDatails?
     var itemImageData: Data?
     var similarItems: [SimilarItem]?
     
-    required init(view: DetailViewProtocol, networkService: NetworkServiceProtocol, itemId: Int) {
+    required init(view: DetailViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, itemId: Int) {
         self.view = view
         self.networkService = networkService
+        self.router = router
         self.itemId = itemId
         self.getItemDetails()
     }
@@ -76,17 +80,25 @@ class DetailPresenter: DetailPresenterProtocol {
         }
     }
     
+    func tapOnTheSimilarItem(itemId: Int?) {
+        router.showDetail(itemId: itemId)
+    }
+    
+    func tapOnTheReturnToTheMainScreen() {
+        router.popToRoot()
+    }
+    
     func formatDateFromISO8601(date: String?) -> String? {
         guard let dateStr = date else { return nil }
         let dateFormatter = ISO8601DateFormatter()
         guard let date = dateFormatter.date(from: dateStr) else { return nil}
         let outputDateFormatter = DateFormatter()
-        outputDateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        outputDateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         outputDateFormatter.dateFormat = "d MMM yyyy"
         return outputDateFormatter.string(from: date)
     }
     
-    private func getImageData(urlString: String?) {
+    func getImageData(urlString: String?) {
         guard let urlString = urlString, let url = URL(string: urlString) else { return }
         if let data = try? Data(contentsOf: url) {
             self.itemImageData = data

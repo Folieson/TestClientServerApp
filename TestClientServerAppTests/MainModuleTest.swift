@@ -9,22 +9,31 @@
 import XCTest
 @testable import TestClientServerApp
 
-class MockView: MainViewProtocol {
+class MockMainView: MainViewProtocol {
     var testSuccess: String?
-    var testFailure: String?
+    var testFailure: Error?
     var activityIndicator = UIActivityIndicatorView()
     var asyncSuccessExpectation: XCTestExpectation?
     var asyncHideExpectation: XCTestExpectation?
+    var asyncFailExpectation: XCTestExpectation?
+    var asyncLastPageExpectation: XCTestExpectation?
     
     func success() {
-        print("success")
         self.testSuccess = "Success"
         asyncSuccessExpectation?.fulfill()
+        asyncSuccessExpectation = nil
     }
     
     func failure(error: Error) {
-        self.testFailure = "Failure"
-        //asyncExpectation?.fulfill()
+        self.testFailure = error
+        if error.localizedDescription == "Last page" {
+            asyncLastPageExpectation?.fulfill()
+            asyncLastPageExpectation = nil
+        } else {
+            asyncFailExpectation?.fulfill()
+            asyncFailExpectation = nil
+        }
+        
     }
     
     func showActivityIndicator() {
@@ -33,28 +42,78 @@ class MockView: MainViewProtocol {
     
     func hideActivityIndicator() {
         self.activityIndicator.stopAnimating()
-        print("hide")
         asyncHideExpectation?.fulfill()
+        asyncHideExpectation = nil
     }
+}
+
+class MockRouter: RouterProtocol {
+    var itemId: Int?
+    var popToRootOK: String?
+    
+    func initialViewController() {
+        
+    }
+    
+    func showDetail(itemId: Int?) {
+        self.itemId = itemId
+    }
+    
+    func popToRoot() {
+        self.popToRootOK = ""
+    }
+    
+    var navigationController: UINavigationController?
+    
+    var assemblyBuilder: AssemblyBuilderProtocol?
+    
+    
+}
+
+class MockNetworkService: NetworkServiceProtocol {
+    required init(requestBuilder: RequestBuilderProtocol) {
+        
+    }
+    
+    func getItemsPage(pageNumb: Int, completion: @escaping (ApiResult<ItemsPage?>) -> Void) {
+        if pageNumb == 0 {
+            let error = NSError(domain: "", code: 0, userInfo: nil)
+            completion(.failure(error))
+        }
+        if pageNumb == 1 {
+            completion(.success(nil))
+        } 
+    }
+    
+    func getItemDetails(itemId: Int, completion: @escaping (ApiResult<ItemDatails?>) -> Void) {
+        completion(.success(nil))
+    }
+    
+    func getSimilarItems(itemId: Int, completion: @escaping (ApiResult<[SimilarItem]?>) -> Void) {
+        completion(.success(nil))
+    }
+
 }
 
 class MainModuleTest: XCTestCase {
     var presenter: MainPresenter!
-    var view: MockView!
+    var view: MockMainView!
     var networkService: NetworkService!
     var requestBuilder: RequestBuilder!
-
+    var router: MockRouter!
     override func setUp() {
-        view = MockView()
+        view = MockMainView()
         requestBuilder = RequestBuilder()
         networkService = NetworkService(requestBuilder: requestBuilder)
-        presenter = MainPresenter(view: view, networkService: networkService)
+        router = MockRouter()
+        presenter = MainPresenter(view: view, networkService: networkService, router: router)
     }
 
     override func tearDown() {
         view = nil
         requestBuilder = nil
         networkService = nil
+        router = nil
         presenter = nil
     }
 
@@ -62,6 +121,7 @@ class MainModuleTest: XCTestCase {
         XCTAssertNotNil(view)
         XCTAssertNotNil(requestBuilder)
         XCTAssertNotNil(networkService)
+        XCTAssertNotNil(router)
         XCTAssertNotNil(presenter)
     }
     
@@ -77,15 +137,19 @@ class MainModuleTest: XCTestCase {
         }
     }
     
-//    func testViewFailure() {
-//        presenter.getItemsPage(pageNumb: 15511515)
-//        let asyncExpectation = expectation(description: "Async block executed")
-//        self.view.asyncExpectation = asyncExpectation
-//        waitForExpectations(timeout: 10) { error in
-//            XCTAssertEqual(self.view?.testFailure, "Failure")
-//        }
-//        //waitForExpectations(timeout: 10, handler: nil)
-//    }
+    func testViewFailure() {
+        presenter = MainPresenter(view: view, networkService: MockNetworkService(requestBuilder: requestBuilder), router: router)
+        presenter.getItemsPage(pageNumb: 0)
+        let asyncExpectation = expectation(description: "failure completed")
+        self.view.asyncFailExpectation = asyncExpectation
+        waitForExpectations(timeout: 10) { error in
+            if error != nil {
+                XCTFail()
+            }
+            XCTAssertNotNil(self.view.testFailure)
+        }
+        
+    }
     
     func testShowAnimation() {
         
@@ -116,5 +180,21 @@ class MainModuleTest: XCTestCase {
             XCTAssertFalse(isIndicatorAnimating)
         }
     }
-
+    
+    func testTapOnTheItem() {
+        presenter.tapOnTheItem(itemId: 1)
+        XCTAssertTrue(router.itemId == 1)
+    }
+    
+    func testLastPage() {
+        presenter.getItemsPage(pageNumb: 999999)
+        let asyncExpectation = expectation(description: "last page completed")
+        self.view.asyncLastPageExpectation = asyncExpectation
+        waitForExpectations(timeout: 10) { error in
+            if error != nil {
+                XCTFail()
+            }
+            XCTAssertTrue(self.presenter.lastPage)
+        }
+    }
 }

@@ -8,13 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		B916951323A519A400440F31 /* MainModuleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B916951223A519A400440F31 /* MainModuleTest.swift */; };
-		B916951B23A5382400440F31 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B916951A23A5382400440F31 /* ModuleBuilder.swift */; };
+		B916951B23A5382400440F31 /* AssemblyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B916951A23A5382400440F31 /* AssemblyBuilder.swift */; };
 		B916951D23A53B2800440F31 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B916951C23A53B2800440F31 /* MainTableViewCell.xib */; };
 		B916952323A5681E00440F31 /* ItemDatails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B916952223A5681E00440F31 /* ItemDatails.swift */; };
 		B916952523A5696800440F31 /* SimilarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B916952423A5696800440F31 /* SimilarItem.swift */; };
 		B9483A2823A4CAE800184A08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9483A2723A4CAE800184A08 /* AppDelegate.swift */; };
 		B9483A2A23A4CAE800184A08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9483A2923A4CAE800184A08 /* SceneDelegate.swift */; };
-		B9483A2C23A4CAE800184A08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9483A2B23A4CAE800184A08 /* ViewController.swift */; };
 		B9483A3223A4CAE800184A08 /* TestClientServerApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9483A3023A4CAE800184A08 /* TestClientServerApp.xcdatamodeld */; };
 		B9483A3423A4CAEE00184A08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9483A3323A4CAEE00184A08 /* Assets.xcassets */; };
 		B9483A3723A4CAEE00184A08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9483A3523A4CAEE00184A08 /* LaunchScreen.storyboard */; };
@@ -31,6 +30,9 @@
 		B960FEDA23A6230200FEA970 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960FED923A6230200FEA970 /* DetailPresenter.swift */; };
 		B960FEDC23A632EE00FEA970 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960FEDB23A632ED00FEA970 /* InfoView.swift */; };
 		B960FEDE23A6330300FEA970 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B960FEDD23A6330300FEA970 /* InfoView.xib */; };
+		B960FEE223A7C40500FEA970 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960FEE123A7C40500FEA970 /* Router.swift */; };
+		B960FEE423A7D23D00FEA970 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960FEE323A7D23C00FEA970 /* RouterTests.swift */; };
+		B960FEE623A7E45A00FEA970 /* DetailModuleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960FEE523A7E45A00FEA970 /* DetailModuleTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +47,13 @@
 
 /* Begin PBXFileReference section */
 		B916951223A519A400440F31 /* MainModuleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleTest.swift; sourceTree = "<group>"; };
-		B916951A23A5382400440F31 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		B916951A23A5382400440F31 /* AssemblyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilder.swift; sourceTree = "<group>"; };
 		B916951C23A53B2800440F31 /* MainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		B916952223A5681E00440F31 /* ItemDatails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDatails.swift; sourceTree = "<group>"; };
 		B916952423A5696800440F31 /* SimilarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarItem.swift; sourceTree = "<group>"; };
 		B9483A2423A4CAE800184A08 /* TestClientServerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestClientServerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9483A2723A4CAE800184A08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9483A2923A4CAE800184A08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B9483A2B23A4CAE800184A08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B9483A3123A4CAE800184A08 /* TestClientServerApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestClientServerApp.xcdatamodel; sourceTree = "<group>"; };
 		B9483A3323A4CAEE00184A08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9483A3623A4CAEE00184A08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,6 +73,9 @@
 		B960FED923A6230200FEA970 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		B960FEDB23A632ED00FEA970 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		B960FEDD23A6330300FEA970 /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
+		B960FEE123A7C40500FEA970 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		B960FEE323A7D23C00FEA970 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
+		B960FEE523A7E45A00FEA970 /* DetailModuleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModuleTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,13 +159,13 @@
 				B9483A4C23A4CB4B00184A08 /* MainModule */,
 				B9483A2723A4CAE800184A08 /* AppDelegate.swift */,
 				B9483A2923A4CAE800184A08 /* SceneDelegate.swift */,
-				B9483A2B23A4CAE800184A08 /* ViewController.swift */,
 				B9483A3323A4CAEE00184A08 /* Assets.xcassets */,
 				B9483A3523A4CAEE00184A08 /* LaunchScreen.storyboard */,
 				B9483A3823A4CAEE00184A08 /* Info.plist */,
 				B9483A3023A4CAE800184A08 /* TestClientServerApp.xcdatamodeld */,
 				B9483A6023A4D2AC00184A08 /* NetworkLayer */,
-				B916951A23A5382400440F31 /* ModuleBuilder.swift */,
+				B916951A23A5382400440F31 /* AssemblyBuilder.swift */,
+				B960FEE123A7C40500FEA970 /* Router.swift */,
 			);
 			path = TestClientServerApp;
 			sourceTree = "<group>";
@@ -173,6 +177,8 @@
 				B9483A4323A4CAEE00184A08 /* Info.plist */,
 				B9483A6323A4DF8100184A08 /* NetworkLayerTests.swift */,
 				B916951223A519A400440F31 /* MainModuleTest.swift */,
+				B960FEE323A7D23C00FEA970 /* RouterTests.swift */,
+				B960FEE523A7E45A00FEA970 /* DetailModuleTest.swift */,
 			);
 			path = TestClientServerAppTests;
 			sourceTree = "<group>";
@@ -327,13 +333,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B960FED723A622EE00FEA970 /* DetailViewController.swift in Sources */,
-				B9483A2C23A4CAE800184A08 /* ViewController.swift in Sources */,
 				B9483A2823A4CAE800184A08 /* AppDelegate.swift in Sources */,
 				B9483A5423A4CF1C00184A08 /* ItemsPage.swift in Sources */,
 				B9483A5E23A4D29000184A08 /* RequestBuilder.swift in Sources */,
 				B960FEDA23A6230200FEA970 /* DetailPresenter.swift in Sources */,
-				B916951B23A5382400440F31 /* ModuleBuilder.swift in Sources */,
+				B916951B23A5382400440F31 /* AssemblyBuilder.swift in Sources */,
 				B9483A5723A4D11100184A08 /* MainViewController.swift in Sources */,
+				B960FEE223A7C40500FEA970 /* Router.swift in Sources */,
 				B9483A3223A4CAE800184A08 /* TestClientServerApp.xcdatamodeld in Sources */,
 				B9483A5A23A4D16800184A08 /* MainPresenter.swift in Sources */,
 				B916952523A5696800440F31 /* SimilarItem.swift in Sources */,
@@ -348,6 +354,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B960FEE623A7E45A00FEA970 /* DetailModuleTest.swift in Sources */,
+				B960FEE423A7D23D00FEA970 /* RouterTests.swift in Sources */,
 				B916951323A519A400440F31 /* MainModuleTest.swift in Sources */,
 				B9483A6423A4DF8100184A08 /* NetworkLayerTests.swift in Sources */,
 				B9483A4223A4CAEE00184A08 /* TestClientServerAppTests.swift in Sources */,

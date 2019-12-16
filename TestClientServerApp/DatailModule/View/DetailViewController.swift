@@ -45,19 +45,24 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var similarItemsViewTopConstraint: NSLayoutConstraint!
     // MARK: -IBActions
     @IBAction func computer1ButtonTapped(_ sender: UIButton) {
-        self.routeToDetailSimilarItemView(similarItemId: self.presenter.similarItems?[0].id)
+        guard let itemId = self.presenter.similarItems?[0].id else { return }
+        presenter.tapOnTheSimilarItem(itemId: itemId)
     }
     @IBAction func computer2ButtonTapped(_ sender: UIButton) {
-        self.routeToDetailSimilarItemView(similarItemId: self.presenter.similarItems?[1].id)
+        guard let itemId = self.presenter.similarItems?[1].id else { return }
+        presenter.tapOnTheSimilarItem(itemId: itemId)
     }
     @IBAction func computer3ButtonTapped(_ sender: UIButton) {
-        self.routeToDetailSimilarItemView(similarItemId: self.presenter.similarItems?[2].id)
+        guard let itemId = self.presenter.similarItems?[2].id else { return }
+        presenter.tapOnTheSimilarItem(itemId: itemId)
     }
     @IBAction func computer4ButtonTapped(_ sender: UIButton) {
-        self.routeToDetailSimilarItemView(similarItemId: self.presenter.similarItems?[3].id)
+        guard let itemId = self.presenter.similarItems?[3].id else { return }
+        presenter.tapOnTheSimilarItem(itemId: itemId)
     }
     @IBAction func computer5ButtonTapped(_ sender: UIButton) {
-        self.routeToDetailSimilarItemView(similarItemId: self.presenter.similarItems?[4].id)
+        guard let itemId = self.presenter.similarItems?[4].id else { return }
+        presenter.tapOnTheSimilarItem(itemId: itemId)
     }
     
     var presenter: DetailPresenterProtocol!
@@ -65,8 +70,17 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setHomeBarButton()
         self.setInfoNames()
         hideView(view: similarItemsView, heightConstraint: similarItemsViewHeighConstraint, topConstraint: similarItemsViewTopConstraint)
+    }
+    
+    private func setHomeBarButton() {
+        let homeBarButton = UIBarButtonItem()
+        homeBarButton.target = self
+        homeBarButton.image = UIImage(systemName: "house")
+        homeBarButton.action = #selector(onHomeBarButtonTapped(sender:))
+        navigationItem.rightBarButtonItem = homeBarButton
     }
     
     private func setInfoNames() {
@@ -74,6 +88,11 @@ class DetailViewController: UIViewController {
         self.introducedInfoView.infoName.text = "Introduced"
         self.discountedInfoView.infoName.text = "Discounted"
         self.descriptionInfoView.infoName.text = "Desciption"
+    }
+    
+    @objc func onHomeBarButtonTapped(sender: UIButton) {
+        print("onHomeBarButtonTapped")
+        self.presenter.tapOnTheReturnToTheMainScreen()
     }
 }
 
@@ -129,11 +148,11 @@ extension DetailViewController: DetailViewProtocol {
         activityIndicator.removeFromSuperview()
     }
     
-    private func routeToDetailSimilarItemView(similarItemId: Int?) {
-        guard let similarItemId = similarItemId else { return }
-        let detailViewController = ModuleBuilder.createDetail(itemId: similarItemId)
-        navigationController?.pushViewController(detailViewController, animated: true)
-    }
+//    private func routeToDetailSimilarItemView(similarItemId: Int?) {
+//        guard let similarItemId = similarItemId else { return }
+//        let detailViewController = ModuleBuilder.createDetail(itemId: similarItemId)
+//        navigationController?.pushViewController(detailViewController, animated: true)
+//    }
 }
 
 extension DetailViewController: UIScrollViewDelegate {

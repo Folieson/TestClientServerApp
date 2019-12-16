@@ -1,5 +1,5 @@
 //
-//  ModuleBuilder.swift
+//  AssemblyBuilder.swift
 //  TestClientServerApp
 //
 //  Created by Андрей Понамарчук on 14.12.2019.
@@ -8,26 +8,26 @@
 
 import UIKit
 
-protocol Builder {
-    static func createMain() -> UIViewController
-    static func createDetail(itemId: Int) -> UIViewController
+protocol AssemblyBuilderProtocol {
+    func createMain(router: RouterProtocol) -> UIViewController
+    func createDetail(itemId: Int, router: RouterProtocol) -> UIViewController
 }
 
-class ModuleBuilder: Builder {
-    static func createMain() -> UIViewController {
+class AssemblyModuleBuilder: AssemblyBuilderProtocol {
+    func createMain(router: RouterProtocol) -> UIViewController {
         let view = MainViewController()
         let requestBuilder = RequestBuilder()
         let networkService = NetworkService(requestBuilder: requestBuilder)
-        let presenter = MainPresenter(view: view, networkService: networkService)
+        let presenter = MainPresenter(view: view, networkService: networkService, router: router)
         view.presenter = presenter
         return view
     }
     
-    static func createDetail(itemId: Int) -> UIViewController {
+    func createDetail(itemId: Int, router: RouterProtocol) -> UIViewController {
         let view = DetailViewController()
         let requestBuilder = RequestBuilder()
         let networkService = NetworkService(requestBuilder: requestBuilder)
-        let presenter = DetailPresenter(view: view, networkService: networkService, itemId: itemId)
+        let presenter = DetailPresenter(view: view, networkService: networkService, router: router, itemId: itemId)
         view.presenter = presenter
         return view
     }
