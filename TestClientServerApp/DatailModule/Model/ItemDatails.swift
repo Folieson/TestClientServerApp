@@ -13,14 +13,7 @@ struct ItemDatails: Codable {
     let name: String?
     let introduced: String?
     let discounted: String?
-    let imageURL: String?
+    let imageUrl: String?
     let company: Company?
-    let itemDatailsDescription: String?
-
-    enum CodingKeys: String, CodingKey {
-        case id, name, introduced, discounted
-        case imageURL = "imageUrl"
-        case company
-        case itemDatailsDescription = "description"
-    }
+    let description: String?
 }

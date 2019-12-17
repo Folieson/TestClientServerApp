@@ -40,6 +40,7 @@ class NetworkService: NetworkServiceProtocol {
     }
     
     func getItemDetails(itemId: Int, completion: @escaping (ApiResult<ItemDatails?>) -> Void) {
+        print("getItemDetails from API")
         guard let request = self.requestBuilder.getItemDetailsRequest(itemId: itemId) else {
             let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Can't get request from requestBuilder"])
             completion(.failure(error))

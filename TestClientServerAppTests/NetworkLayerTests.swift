@@ -56,10 +56,10 @@ class NetworkLayerTests: XCTestCase {
                 XCTAssertEqual(itemDetails?.id, 71)
                 XCTAssertEqual(itemDetails?.name, "Amiga 1000")
                 XCTAssertNil(itemDetails?.introduced)
-                XCTAssertEqual(itemDetails?.imageURL, "https://www.overclockers.ru/images/news/2016/07/28/LeanovoAir13Pro_01.jpg")
+                XCTAssertEqual(itemDetails?.imageUrl, "https://www.overclockers.ru/images/news/2016/07/28/LeanovoAir13Pro_01.jpg")
                 XCTAssertEqual(itemDetails?.company?.id, 6)
                 XCTAssertNotNil(itemDetails?.company?.name)
-                XCTAssertNotNil(itemDetails?.itemDatailsDescription)
+                XCTAssertNotNil(itemDetails?.description)
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }

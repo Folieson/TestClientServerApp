@@ -33,6 +33,10 @@
 		B960FEE223A7C40500FEA970 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960FEE123A7C40500FEA970 /* Router.swift */; };
 		B960FEE423A7D23D00FEA970 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960FEE323A7D23C00FEA970 /* RouterTests.swift */; };
 		B960FEE623A7E45A00FEA970 /* DetailModuleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960FEE523A7E45A00FEA970 /* DetailModuleTest.swift */; };
+		B960FEEC23A910CF00FEA970 /* Computer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960FEE823A910CF00FEA970 /* Computer+CoreDataClass.swift */; };
+		B960FEED23A910CF00FEA970 /* Computer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960FEE923A910CF00FEA970 /* Computer+CoreDataProperties.swift */; };
+		B960FEEE23A910CF00FEA970 /* Company+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960FEEA23A910CF00FEA970 /* Company+CoreDataClass.swift */; };
+		B960FEEF23A910CF00FEA970 /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960FEEB23A910CF00FEA970 /* Company+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,10 @@
 		B960FEE123A7C40500FEA970 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B960FEE323A7D23C00FEA970 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		B960FEE523A7E45A00FEA970 /* DetailModuleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModuleTest.swift; sourceTree = "<group>"; };
+		B960FEE823A910CF00FEA970 /* Computer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Computer+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B960FEE923A910CF00FEA970 /* Computer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Computer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B960FEEA23A910CF00FEA970 /* Company+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B960FEEB23A910CF00FEA970 /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +136,7 @@
 		B916952123A5651D00440F31 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B960FEE723A910A300FEA970 /* Core Data */,
 				B916952223A5681E00440F31 /* ItemDatails.swift */,
 				B916952423A5696800440F31 /* SimilarItem.swift */,
 			);
@@ -226,6 +235,17 @@
 				B9483A5D23A4D29000184A08 /* RequestBuilder.swift */,
 			);
 			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		B960FEE723A910A300FEA970 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				B960FEE823A910CF00FEA970 /* Computer+CoreDataClass.swift */,
+				B960FEE923A910CF00FEA970 /* Computer+CoreDataProperties.swift */,
+				B960FEEA23A910CF00FEA970 /* Company+CoreDataClass.swift */,
+				B960FEEB23A910CF00FEA970 /* Company+CoreDataProperties.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,17 +352,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B960FEED23A910CF00FEA970 /* Computer+CoreDataProperties.swift in Sources */,
 				B960FED723A622EE00FEA970 /* DetailViewController.swift in Sources */,
 				B9483A2823A4CAE800184A08 /* AppDelegate.swift in Sources */,
 				B9483A5423A4CF1C00184A08 /* ItemsPage.swift in Sources */,
 				B9483A5E23A4D29000184A08 /* RequestBuilder.swift in Sources */,
 				B960FEDA23A6230200FEA970 /* DetailPresenter.swift in Sources */,
+				B960FEEF23A910CF00FEA970 /* Company+CoreDataProperties.swift in Sources */,
 				B916951B23A5382400440F31 /* AssemblyBuilder.swift in Sources */,
 				B9483A5723A4D11100184A08 /* MainViewController.swift in Sources */,
 				B960FEE223A7C40500FEA970 /* Router.swift in Sources */,
 				B9483A3223A4CAE800184A08 /* TestClientServerApp.xcdatamodeld in Sources */,
 				B9483A5A23A4D16800184A08 /* MainPresenter.swift in Sources */,
+				B960FEEC23A910CF00FEA970 /* Computer+CoreDataClass.swift in Sources */,
 				B916952523A5696800440F31 /* SimilarItem.swift in Sources */,
+				B960FEEE23A910CF00FEA970 /* Company+CoreDataClass.swift in Sources */,
 				B916952323A5681E00440F31 /* ItemDatails.swift in Sources */,
 				B9483A2A23A4CAE800184A08 /* SceneDelegate.swift in Sources */,
 				B960FEDC23A632EE00FEA970 /* InfoView.swift in Sources */,

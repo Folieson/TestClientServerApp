@@ -147,12 +147,6 @@ extension DetailViewController: DetailViewProtocol {
         activityIndicator.stopAnimating()
         activityIndicator.removeFromSuperview()
     }
-    
-//    private func routeToDetailSimilarItemView(similarItemId: Int?) {
-//        guard let similarItemId = similarItemId else { return }
-//        let detailViewController = ModuleBuilder.createDetail(itemId: similarItemId)
-//        navigationController?.pushViewController(detailViewController, animated: true)
-//    }
 }
 
 extension DetailViewController: UIScrollViewDelegate {
@@ -188,7 +182,7 @@ extension DetailViewController {
         let tapAction = UITapGestureRecognizer(target: self, action: #selector(self.descriptionInfoTapped(_:)))
         self.descriptionInfoView.isUserInteractionEnabled = true
         self.descriptionInfoView.addGestureRecognizer(tapAction)
-        setInfo(data: presenter.itemDetails?.itemDatailsDescription, view: descriptionInfoView,
+        setInfo(data: presenter.itemDetails?.description, view: descriptionInfoView,
                 heightConstraint: descriptionInfoViewHeightConstraint, topConstraint: descriptionInfoViewTopConstraint)
     }
     

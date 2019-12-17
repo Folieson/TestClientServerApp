@@ -11,6 +11,10 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    static func shared() -> AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
 
 
 
